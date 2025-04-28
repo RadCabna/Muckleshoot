@@ -8,18 +8,53 @@
 
 /* Begin PBXBuildFile section */
 		DD02EE742DB7A35E002081C3 /* Muckleshoot_gameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02EE732DB7A35E002081C3 /* Muckleshoot_gameApp.swift */; };
-		DD02EE762DB7A35E002081C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02EE752DB7A35E002081C3 /* ContentView.swift */; };
 		DD02EE782DB7A35F002081C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD02EE772DB7A35F002081C3 /* Assets.xcassets */; };
 		DD02EE7C2DB7A35F002081C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD02EE7B2DB7A35F002081C3 /* Preview Assets.xcassets */; };
+		DD02EE8A2DB7A3C5002081C3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02EE892DB7A3C5002081C3 /* Coordinator.swift */; };
+		DD02EE8C2DB7A3E9002081C3 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02EE8B2DB7A3E9002081C3 /* Loading.swift */; };
+		DD02EE8E2DB7A3F2002081C3 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02EE8D2DB7A3F2002081C3 /* MainMenu.swift */; };
+		DD02EE902DB7A3F9002081C3 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02EE8F2DB7A3F9002081C3 /* Game.swift */; };
+		DD02EE922DB7A41D002081C3 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02EE912DB7A41D002081C3 /* Background.swift */; };
+		DD02EE942DB7A44F002081C3 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02EE932DB7A44F002081C3 /* Controller.swift */; };
+		DD02EE972DB7A499002081C3 /* SizeExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02EE962DB7A499002081C3 /* SizeExtention.swift */; };
+		DD02EE992DB7A4B0002081C3 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02EE982DB7A4B0002081C3 /* SoundManager.swift */; };
+		DD02EE9B2DB7A5C9002081C3 /* Chewy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD02EE9A2DB7A5C9002081C3 /* Chewy-Regular.ttf */; };
+		DD02EE9E2DB7C058002081C3 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02EE9D2DB7C058002081C3 /* MenuButton.swift */; };
+		DD02EEA02DB7CC40002081C3 /* Horse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02EE9F2DB7CC40002081C3 /* Horse.swift */; };
+		DDB98B852DBE73F500455368 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B842DBE73F500455368 /* Model.swift */; };
+		DDB98B872DBF214900455368 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B862DBF214900455368 /* Store.swift */; };
+		DDB98B892DBF259E00455368 /* BuyNewHorse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B882DBF259E00455368 /* BuyNewHorse.swift */; };
+		DDB98B8B2DBF2A3D00455368 /* Upgrades.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B8A2DBF2A3D00455368 /* Upgrades.swift */; };
+		DDB98B8D2DBF361000455368 /* YouWin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B8C2DBF361000455368 /* YouWin.swift */; };
+		DDB98B8F2DBFA66600455368 /* YouLose.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B8E2DBFA66600455368 /* YouLose.swift */; };
+		DDB98B912DBFA71C00455368 /* Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B902DBFA71C00455368 /* Pause.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DD02EE702DB7A35E002081C3 /* Muckleshoot-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Muckleshoot-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD02EE732DB7A35E002081C3 /* Muckleshoot_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muckleshoot_gameApp.swift; sourceTree = "<group>"; };
-		DD02EE752DB7A35E002081C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DD02EE772DB7A35F002081C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD02EE792DB7A35F002081C3 /* Muckleshoot_game.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Muckleshoot_game.entitlements; sourceTree = "<group>"; };
 		DD02EE7B2DB7A35F002081C3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DD02EE892DB7A3C5002081C3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		DD02EE8B2DB7A3E9002081C3 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		DD02EE8D2DB7A3F2002081C3 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		DD02EE8F2DB7A3F9002081C3 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		DD02EE912DB7A41D002081C3 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		DD02EE932DB7A44F002081C3 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		DD02EE962DB7A499002081C3 /* SizeExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeExtention.swift; sourceTree = "<group>"; };
+		DD02EE982DB7A4B0002081C3 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		DD02EE9A2DB7A5C9002081C3 /* Chewy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chewy-Regular.ttf"; sourceTree = "<group>"; };
+		DD02EE9C2DB7A5D5002081C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DD02EE9D2DB7C058002081C3 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		DD02EE9F2DB7CC40002081C3 /* Horse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Horse.swift; sourceTree = "<group>"; };
+		DDB98B842DBE73F500455368 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		DDB98B862DBF214900455368 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		DDB98B882DBF259E00455368 /* BuyNewHorse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyNewHorse.swift; sourceTree = "<group>"; };
+		DDB98B8A2DBF2A3D00455368 /* Upgrades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upgrades.swift; sourceTree = "<group>"; };
+		DDB98B8C2DBF361000455368 /* YouWin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouWin.swift; sourceTree = "<group>"; };
+		DDB98B8E2DBFA66600455368 /* YouLose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouLose.swift; sourceTree = "<group>"; };
+		DDB98B902DBFA71C00455368 /* Pause.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pause.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +87,15 @@
 		DD02EE722DB7A35E002081C3 /* Muckleshoot-game */ = {
 			isa = PBXGroup;
 			children = (
+				DD02EE9C2DB7A5D5002081C3 /* Info.plist */,
 				DD02EE732DB7A35E002081C3 /* Muckleshoot_gameApp.swift */,
-				DD02EE752DB7A35E002081C3 /* ContentView.swift */,
+				DD02EE822DB7A373002081C3 /* Views */,
+				DD02EE832DB7A37F002081C3 /* SubViews */,
+				DD02EE952DB7A483002081C3 /* Extentions */,
+				DD02EE882DB7A3A5002081C3 /* Sounds */,
+				DD02EE872DB7A39E002081C3 /* Fonts */,
+				DD02EE852DB7A38D002081C3 /* Coordinator */,
+				DD02EE842DB7A387002081C3 /* Models */,
 				DD02EE772DB7A35F002081C3 /* Assets.xcassets */,
 				DD02EE792DB7A35F002081C3 /* Muckleshoot_game.entitlements */,
 				DD02EE7A2DB7A35F002081C3 /* Preview Content */,
@@ -67,6 +109,73 @@
 				DD02EE7B2DB7A35F002081C3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DD02EE822DB7A373002081C3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD02EE8B2DB7A3E9002081C3 /* Loading.swift */,
+				DD02EE8D2DB7A3F2002081C3 /* MainMenu.swift */,
+				DD02EE8F2DB7A3F9002081C3 /* Game.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DD02EE832DB7A37F002081C3 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				DD02EE912DB7A41D002081C3 /* Background.swift */,
+				DD02EE932DB7A44F002081C3 /* Controller.swift */,
+				DD02EE9D2DB7C058002081C3 /* MenuButton.swift */,
+				DD02EE9F2DB7CC40002081C3 /* Horse.swift */,
+				DDB98B862DBF214900455368 /* Store.swift */,
+				DDB98B882DBF259E00455368 /* BuyNewHorse.swift */,
+				DDB98B8A2DBF2A3D00455368 /* Upgrades.swift */,
+				DDB98B8C2DBF361000455368 /* YouWin.swift */,
+				DDB98B8E2DBFA66600455368 /* YouLose.swift */,
+				DDB98B902DBFA71C00455368 /* Pause.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		DD02EE842DB7A387002081C3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DDB98B842DBE73F500455368 /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DD02EE852DB7A38D002081C3 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				DD02EE892DB7A3C5002081C3 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		DD02EE872DB7A39E002081C3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DD02EE9A2DB7A5C9002081C3 /* Chewy-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DD02EE882DB7A3A5002081C3 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				DD02EE982DB7A4B0002081C3 /* SoundManager.swift */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		DD02EE952DB7A483002081C3 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				DD02EE962DB7A499002081C3 /* SizeExtention.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD02EE9B2DB7A5C9002081C3 /* Chewy-Regular.ttf in Resources */,
 				DD02EE7C2DB7A35F002081C3 /* Preview Assets.xcassets in Resources */,
 				DD02EE782DB7A35F002081C3 /* Assets.xcassets in Resources */,
 			);
@@ -139,8 +249,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD02EE762DB7A35E002081C3 /* ContentView.swift in Sources */,
 				DD02EE742DB7A35E002081C3 /* Muckleshoot_gameApp.swift in Sources */,
+				DDB98B892DBF259E00455368 /* BuyNewHorse.swift in Sources */,
+				DDB98B8D2DBF361000455368 /* YouWin.swift in Sources */,
+				DD02EE902DB7A3F9002081C3 /* Game.swift in Sources */,
+				DD02EEA02DB7CC40002081C3 /* Horse.swift in Sources */,
+				DDB98B852DBE73F500455368 /* Model.swift in Sources */,
+				DD02EE9E2DB7C058002081C3 /* MenuButton.swift in Sources */,
+				DD02EE8C2DB7A3E9002081C3 /* Loading.swift in Sources */,
+				DD02EE8A2DB7A3C5002081C3 /* Coordinator.swift in Sources */,
+				DDB98B8F2DBFA66600455368 /* YouLose.swift in Sources */,
+				DDB98B8B2DBF2A3D00455368 /* Upgrades.swift in Sources */,
+				DDB98B872DBF214900455368 /* Store.swift in Sources */,
+				DD02EE8E2DB7A3F2002081C3 /* MainMenu.swift in Sources */,
+				DD02EE922DB7A41D002081C3 /* Background.swift in Sources */,
+				DDB98B912DBFA71C00455368 /* Pause.swift in Sources */,
+				DD02EE942DB7A44F002081C3 /* Controller.swift in Sources */,
+				DD02EE972DB7A499002081C3 /* SizeExtention.swift in Sources */,
+				DD02EE992DB7A4B0002081C3 /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +400,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Muckleshoot-game/Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -282,9 +409,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
@@ -292,7 +418,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "f1.Muckleshoot-game";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -312,6 +439,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Muckleshoot-game/Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -320,9 +448,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
@@ -330,7 +457,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "f1.Muckleshoot-game";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
