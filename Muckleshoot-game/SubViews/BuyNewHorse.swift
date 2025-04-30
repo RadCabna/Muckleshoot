@@ -9,6 +9,10 @@ import SwiftUI
 
 struct BuyNewHorse: View {
     @AppStorage("coinCount") var coinCount = 100
+    @State private var yourHorsesAray = UserDefaults.standard.array(forKey: "yourHorsesAray") as? [[String]] ?? Arrays.yourHorsesArray
+    @State private var alreadyBoughtHorsesData = UserDefaults.standard.array(forKey: "alreadyBoughtHorsesData") as? [Int] ?? [0,0,0,0]
+    @State private var selectedHorse =  ["horseCard1","Blaze", "5", "5", "0", "100"]
+    @Binding var horseIndex: Int
     @Binding var horse: ShopItem
     @Binding var buyNewHorse: Bool
     var body: some View {
@@ -43,42 +47,70 @@ struct BuyNewHorse: View {
                 .frame(width: screenWidth*0.5)
                 .overlay(
                     VStack {
-                        Image(horse.name)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: screenWidth*0.15)
-                            .overlay(
-                                Text("\(horse.horseName)")
+                        HStack(spacing: screenWidth*0.03) {
+                            Image(horse.name)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: screenWidth*0.15)
+                                .overlay(
+                                    Text("\(horse.horseName)")
+                                        .font(Font.custom("Chewy-Regular", size: screenWidth*0.03))
+                                        .foregroundColor(.white)
+                                        .shadow(color: .black, radius: 2)
+                                        .offset(y: screenHeight*0.14)
+                                )
+                            VStack(alignment: .leading, spacing: screenHeight*0.04) {
+                                Text("SPEED +5%")
                                     .font(Font.custom("Chewy-Regular", size: screenWidth*0.03))
                                     .foregroundColor(.white)
                                     .shadow(color: .black, radius: 2)
-                                    .offset(y: screenHeight*0.14)
-                            )
-                        Image("menuButton")
+                                Text("STAMINA +5%")
+                                    .font(Font.custom("Chewy-Regular", size: screenWidth*0.03))
+                                    .foregroundColor(.white)
+                                    .shadow(color: .black, radius: 2)
+                            }
+                        }
+                        Image(coinCount >= horse.cost && alreadyBoughtHorsesData[horseIndex] == 0 ? "menuButton" : "disactiveButton")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: screenWidth*0.15)
+                            .frame(width: screenWidth*0.2)
                             .overlay(
                                 HStack {
                                     Image("coin")
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: screenWidth*0.02)
+                                        .frame(width: screenWidth*0.03)
                                     Text("\(horse.cost)")
-                                        .font(Font.custom("Chewy-Regular", size: screenWidth*0.02))
+                                        .font(Font.custom("Chewy-Regular", size: screenWidth*0.03))
                                         .foregroundColor(.white)
                                         .shadow(color: .black, radius: 2)
                                         .shadow(color: .black, radius: 2)
 
                                 }
                             )
+                            .onTapGesture {
+                                buyNewItem()
+                            }
                     }
-                        .offset(y: screenHeight*0.05)
+                        .offset(y: screenHeight*0.1)
                 )
         }
     }
+    
+    func buyNewItem() {
+        if coinCount >= horse.cost && alreadyBoughtHorsesData[horseIndex] == 0{
+            coinCount -= horse.cost
+            selectedHorse[0] = horse.name
+            selectedHorse[1] = horse.horseName
+            yourHorsesAray.append(selectedHorse)
+            UserDefaults.standard.setValue(yourHorsesAray, forKey: "yourHorsesAray")
+            alreadyBoughtHorsesData[horseIndex] = 1
+            UserDefaults.standard.setValue(alreadyBoughtHorsesData, forKey: "alreadyBoughtHorsesData")
+        }
+    }
+    
 }
 
 #Preview {
-    BuyNewHorse(horse: .constant(ShopItem(name: "horseCard1", cost: 300, horseName: "Blaze")), buyNewHorse: .constant(true))
+    BuyNewHorse(horseIndex: .constant(0), horse: .constant(ShopItem(name: "horseCard1", cost: 300, horseName: "Blaze")), buyNewHorse: .constant(true))
 }

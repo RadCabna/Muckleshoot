@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Game: View {
+    @AppStorage("selectedHorseIndex") var selectedHorseIndex = 0
     @State private var boostOn = false
     @State private var startRun = false
     @State private var horseJump = false
@@ -32,6 +33,7 @@ struct Game: View {
     @State private var startFinishOffset: CGFloat = 0
     @State private var barierXOffset: CGFloat = 0
     @State private var bariersArray = Arrays.batiersArray
+    @State private var yourHorsesAray = UserDefaults.standard.array(forKey: "yourHosesAray") as? [[String]] ?? Arrays.yourHorsesArray
     var body: some View {
         ZStack {
             Background(backgroundNumber: 2)
@@ -42,8 +44,8 @@ struct Game: View {
                     .scaledToFit()
                     .frame(height: screenHeight*0.14)
                     .onTapGesture {
-//                        showPause.toggle()
-                        raceBegun.toggle()
+                        showPause.toggle()
+                        //                        raceBegun.toggle()
                     }
                 Spacer()
                 ZStack {
@@ -61,7 +63,8 @@ struct Game: View {
                             Image("loadingBarFront")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: screenWidth*0.495)                                )
+                                .frame(width: screenWidth*0.495)
+                        )
                 }
                 .padding(.top, screenHeight*0.02)
                 //                Spacer()
@@ -127,7 +130,7 @@ struct Game: View {
                 .resizable()
                 .scaledToFit()
                 .frame(height: screenHeight*0.6)
-                .offset(x:screenWidth*2.6 + startFinishOffset,y: screenHeight*0.24)
+                .offset(x:screenWidth*4.6 + startFinishOffset,y: screenHeight*0.24)
             ZStack {
                 ForEach(0..<bariersArray.count, id: \.self) { item in
                     if bariersArray[item].haveBarier {
@@ -153,7 +156,7 @@ struct Game: View {
                     .onTapGesture {
                         boostOn.toggle()
                         if stamina <= 0.8 {
-                            withAnimation(Animation.easeIn(duration: 1)) {
+                            withAnimation(Animation.easeIn(duration: 3)) {
                                 horseBoostOffset += screenWidth*0.1
                             }
                             stamina += 0.2
@@ -184,7 +187,7 @@ struct Game: View {
                 .shadow(color: .black, radius: 4)
                 .opacity(startTextOpacity)
                 .scaleEffect(x: startTextScale, y: startTextScale)
-           
+            
             if showPause {
                 Pause(showPause: $showPause)
             }
@@ -193,6 +196,23 @@ struct Game: View {
             }
             if youWin {
                 WinTraining(youWin: $youWin)
+            }
+        }
+        .onChange(of: showPause) { _ in
+            if showPause {
+                raceBegun = false
+                startRun = false
+                runAlreadyStart = false
+                stopobjectsMoving()
+                stopTrackAnimation()
+                stopFinishLineAnimation()
+            } else {
+                trackAnimation()
+                startFinishLineAnimation()
+                objectsMoving()
+                raceBegun = true
+                startRun = true
+                runAlreadyStart = true
             }
         }
         
@@ -212,12 +232,12 @@ struct Game: View {
             if raceBegun {
                 trackAnimation()
             } else {
-//                stopTrackAnimation()
+                //                stopTrackAnimation()
                 stopFinishLineAnimation()
             }
         }
         .onChange(of: startFinishOffset) { _ in
-            if startFinishOffset <= -screenWidth*3 {
+            if startFinishOffset <= -screenWidth*5 {
                 stopTrackAnimation()
                 stopFinishLineAnimation()
             }
@@ -234,10 +254,24 @@ struct Game: View {
         }
         
         .onAppear {
+            updateHorseView()
             createBariers()
             startRaceAnimation()
         }
         
+    }
+    
+    func updateHorseView() {
+        switch selectedHorseIndex {
+        case 1:
+            horseOneArray = ["horse21", "horse23", "horse22"]
+        case 2:
+            horseOneArray = ["horse31", "horse33", "horse32"]
+        case 3:
+            horseOneArray = ["horse41", "horse43", "horse42"]
+        default:
+            horseOneArray = ["horse11", "horse13", "horse12"]
+        }
     }
     
     func restartLevel() {
@@ -296,6 +330,7 @@ struct Game: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
             raceBegun = true
             startRun = true
+            runAlreadyStart = true
             stopobjectsMoving()
             objectsMoving()
             startFinishLineAnimation()
@@ -343,10 +378,10 @@ struct Game: View {
     
     func startFinishLineAnimation() {
         progressTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { _ in
-            if startFinishOffset - horseBoostOffset > -screenWidth*2.9 {
+            if startFinishOffset - horseBoostOffset > -screenWidth*4.9 {
                 withAnimation(Animation.linear(duration: 0.5)) {
                     if runProgress > 0 {
-                        runProgress -= 0.02
+                        runProgress -= 0.0105
                     }
                     startFinishOffset -= screenWidth*0.05
                     barierXOffset -= screenWidth*0.05
@@ -354,7 +389,7 @@ struct Game: View {
             } else {
                 stopTrackAnimation()
                 stopFinishLineAnimation()
-//                startRun = false
+                //                startRun = false
                 finishedAnimation()
                 
             }

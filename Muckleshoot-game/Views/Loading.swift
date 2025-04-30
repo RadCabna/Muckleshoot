@@ -113,7 +113,9 @@ struct Loading: View {
         withAnimation(Animation.easeInOut(duration: 1.5)) {
             loadingOpacity = 1
         }
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            coordinator.navigate(to: .mainMenu)
+        }
     }
     
 }

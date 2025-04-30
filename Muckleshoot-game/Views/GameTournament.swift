@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct GameTournament: View {
+    @AppStorage("selectedHorseIndex") var selectedHorseIndex = 0
     @State private var boostOn = false
+    @State private var boostEnemyes = false
     @State private var startRun = false
+    @State private var startOtherHorseRun = false
     @State private var horseJump = false
     @State private var showPause = false
     @State private var youLose = false
@@ -17,15 +20,20 @@ struct GameTournament: View {
     @State private var raceBegun = false
     @State private var runAlreadyStart = false
     @State private var startText = "3"
+    @State private var horseOneArray: [String] = ["horse11", "horse13", "horse12"]
     @State private var horseTwoArray: [String] = ["horse21", "horse23", "horse22"]
+    @State private var horseThreeArray: [String] = ["horse31", "horse33", "horse32"]
     @State private var horseTwoJump = false
     @State private var horseThreeJump = false
-    @State private var horseOneArray: [String] = ["horse11", "horse13", "horse12"]
+    @State private var horseTwoRun = false
+    @State private var horseThreeRun = false
     @State private var startTextOpacity: CGFloat = 0
     @State private var startTextScale: CGFloat = 1
     @State private var runProgress: CGFloat = 1
     @State private var stamina: CGFloat = 0
     @State private var horseBoostOffset: CGFloat = 0
+    @State private var horseTwoBoostOffset: CGFloat = 0
+    @State private var horseThreeBoostOffset: CGFloat = 0
     @State private var horseVerticalOffset: CGFloat = 0
     @State private var horseTwoVerticalOffset: CGFloat = 0
     @State private var horseThreeVerticalOffset: CGFloat = 0
@@ -33,10 +41,12 @@ struct GameTournament: View {
     @State private var trackTimer: Timer?
     @State private var objectsTimer: Timer?
     @State private var progressTimer: Timer?
+    @State private var differentTimer: Timer?
     @State private var objectsOffset: CGFloat = 0
     @State private var startFinishOffset: CGFloat = 0
     @State private var barierXOffset: CGFloat = 0
     @State private var bariersArray = Arrays.batiersArray
+    @State private var yourHorsesAray = UserDefaults.standard.array(forKey: "yourHosesAray") as? [[String]] ?? Arrays.yourHorsesArray
     var body: some View {
         ZStack {
             Background(backgroundNumber: 2)
@@ -47,8 +57,12 @@ struct GameTournament: View {
                     .scaledToFit()
                     .frame(height: screenHeight*0.14)
                     .onTapGesture {
-//                        showPause.toggle()
-                        raceBegun.toggle()
+                                                showPause.toggle()
+                        //                        raceBegun.toggle()
+//                        horseTwoJump = true
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                            horseTwoJump = false
+//                        }
                     }
                 Spacer()
                 ZStack {
@@ -132,7 +146,7 @@ struct GameTournament: View {
                 .resizable()
                 .scaledToFit()
                 .frame(height: screenHeight*0.6)
-                .offset(x:screenWidth*2.6 + startFinishOffset,y: screenHeight*0.24)
+                .offset(x:screenWidth*4.6 + startFinishOffset,y: screenHeight*0.24)
             ZStack {
                 ForEach(0..<bariersArray.count, id: \.self) { item in
                     if bariersArray[item].haveBarier {
@@ -144,12 +158,12 @@ struct GameTournament: View {
                     }
                 }
             }
-            Horse(horseArray: $horseTwoArray, startRun: $startRun, runAlreadyStart: $runAlreadyStart, boostSpeed: boostOn, jump: horseJump)
-                            .offset(x: -screenWidth*0.4, y: screenHeight*0)
+            Horse(horseArray: $horseTwoArray, startRun: $startOtherHorseRun, runAlreadyStart: $runAlreadyStart, boostSpeed: boostEnemyes, jump: horseTwoJump)
+                .offset(x: -screenWidth*0.4 + horseTwoBoostOffset, y: screenHeight*0)
             Horse(horseArray: $horseOneArray, startRun: $startRun, runAlreadyStart: $runAlreadyStart, boostSpeed: boostOn, jump: horseJump)
                 .offset(x: -screenWidth*0.4 + horseBoostOffset, y: screenHeight*0.2+horseVerticalOffset)
-            //            Horse(startRun: startRun, boostSpeed: boostOn, jump: horseJump)
-            //                .offset(x: -screenWidth*0.4, y: screenHeight*0.4)
+            Horse(horseArray: $horseThreeArray, startRun: $startOtherHorseRun, runAlreadyStart: $runAlreadyStart, boostSpeed: boostEnemyes, jump: horseThreeJump)
+                .offset(x: -screenWidth*0.4 + horseThreeBoostOffset, y: screenHeight*0.4)
             HStack {
                 Image("boostButton")
                     .resizable()
@@ -158,12 +172,13 @@ struct GameTournament: View {
                     .onTapGesture {
                         boostOn.toggle()
                         if stamina <= 0.8 {
-                            withAnimation(Animation.easeIn(duration: 1)) {
+                            withAnimation(Animation.easeIn(duration: 3)) {
                                 horseBoostOffset += screenWidth*0.1
                             }
                             stamina += 0.2
                         }
                     }
+                    .disabled(youWin || youLose)
                 Image("jumpButton")
                     .resizable()
                     .scaledToFit()
@@ -177,6 +192,7 @@ struct GameTournament: View {
                             }
                         }
                     }
+                    .disabled(youWin || youLose)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
             .padding()
@@ -189,15 +205,37 @@ struct GameTournament: View {
                 .shadow(color: .black, radius: 4)
                 .opacity(startTextOpacity)
                 .scaleEffect(x: startTextScale, y: startTextScale)
-           
+            
             if showPause {
                 Pause(showPause: $showPause)
             }
             if youLose {
-                LoseTraining(youLose: $youLose)
+                YouLose(youLose: $youLose)
             }
             if youWin {
-                WinTraining(youWin: $youWin)
+                YouWin(youWin: $youWin)
+            }
+        }
+        
+        .onChange(of: showPause) { _ in
+            if showPause {
+                raceBegun = false
+                startRun = false
+                runAlreadyStart = false
+                startOtherHorseRun = false
+                stopDifference()
+                stopobjectsMoving()
+                stopTrackAnimation()
+                stopFinishLineAnimation()
+            } else {
+                differentHorseRun()
+                trackAnimation()
+                startFinishLineAnimation()
+                objectsMoving()
+                raceBegun = true
+                startRun = true
+                runAlreadyStart = true
+                startOtherHorseRun = true
             }
         }
         
@@ -217,12 +255,12 @@ struct GameTournament: View {
             if raceBegun {
                 trackAnimation()
             } else {
-//                stopTrackAnimation()
+                //                stopTrackAnimation()
                 stopFinishLineAnimation()
             }
         }
         .onChange(of: startFinishOffset) { _ in
-            if startFinishOffset <= -screenWidth*3 {
+            if startFinishOffset <= -screenWidth*5 {
                 stopTrackAnimation()
                 stopFinishLineAnimation()
             }
@@ -234,22 +272,90 @@ struct GameTournament: View {
                     startRun = false
                     raceBegun = false
                     youLose = true
+                    otherHorseRunAway()
+                    stopDifference()
+                }
+                if barierXOffset - horseTwoBoostOffset <= -screenWidth*0.4 + 50 && barierXOffset - horseTwoBoostOffset >= -screenWidth*0.4 - 50 && 0 == bariersArray[i].yOffset && bariersArray[i].haveBarier {
+                    horseTwoJump = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        horseTwoJump = false
+                    }
+                }
+                if barierXOffset - horseThreeBoostOffset <= -screenWidth*0.4 + 50 && barierXOffset - horseThreeBoostOffset >= -screenWidth*0.4 - 50 &&  screenHeight*0.4 == bariersArray[i].yOffset && bariersArray[i].haveBarier {
+                    horseThreeJump = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        horseThreeJump = false
+                    }
                 }
             }
         }
         
         .onAppear {
+            updateHorseView()
             createBariers()
             startRaceAnimation()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                differentHorseRun()
+            }
         }
         
     }
     
+    func updateHorseView() {
+        switch selectedHorseIndex {
+        case 1:
+            horseOneArray = ["horse21", "horse23", "horse22"]
+        case 2:
+            horseOneArray = ["horse31", "horse33", "horse32"]
+        case 3:
+            horseOneArray = ["horse41", "horse43", "horse42"]
+        default:
+            horseOneArray = ["horse11", "horse13", "horse12"]
+        }
+    }
+    
+    func differentHorseRun() {
+        differentTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
+            let randomize = Bool.random()
+            let sideRandome = Bool.random()
+            let randomize1 = Bool.random()
+            let sideRandome1 = Bool.random()
+            if randomize {
+                withAnimation(Animation.easeOut(duration: 3)) {
+                    if sideRandome {
+                        horseTwoBoostOffset += 30
+                    } else {
+                        horseTwoBoostOffset -= 30
+                    }
+                }
+            }
+            if randomize1 {
+                withAnimation(Animation.easeOut(duration: 3)) {
+                    if sideRandome1 {
+                        horseThreeBoostOffset += 30
+                    } else {
+                        horseThreeBoostOffset -= 30
+                    }
+                }
+            }
+        }
+    }
+    
+    func stopDifference() {
+        differentTimer?.invalidate()
+        differentTimer = nil
+    }
+    
+  
     func restartLevel() {
+        runAlreadyStart = false
         startRun = false
+        startOtherHorseRun = false
         raceBegun = false
         barierXOffset = screenWidth*0.6
         horseBoostOffset = 0
+        horseTwoBoostOffset = 0
+        horseThreeBoostOffset = 0
         horseVerticalOffset = 0
         barierXOffset = 0
         stamina = 0
@@ -263,6 +369,9 @@ struct GameTournament: View {
         stopTrackAnimation()
         stopFinishLineAnimation()
         startRaceAnimation()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            differentHorseRun()
+        }
     }
     
     func startRaceAnimation() {
@@ -301,6 +410,8 @@ struct GameTournament: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
             raceBegun = true
             startRun = true
+            runAlreadyStart = true
+            startOtherHorseRun = true
             stopobjectsMoving()
             objectsMoving()
             startFinishLineAnimation()
@@ -337,21 +448,38 @@ struct GameTournament: View {
         }
     }
     
-    func finishedAnimation() {
-        withAnimation(Animation.easeInOut(duration: 2)) {
-            horseBoostOffset = screenWidth
+    func otherHorseRunAway() {
+        withAnimation(Animation.easeInOut(duration: 3)) {
+            horseTwoBoostOffset = screenWidth
+            horseThreeBoostOffset = screenWidth
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-            youWin = true
+    }
+    
+    func finishedAnimation() {
+        withAnimation(Animation.easeInOut(duration: 3)) {
+            horseBoostOffset += screenWidth*1.2
+            horseTwoBoostOffset += screenWidth*1.2
+            horseThreeBoostOffset += screenWidth*1.2
+        }
+        if horseBoostOffset > horseTwoBoostOffset && horseBoostOffset > horseThreeBoostOffset {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    youWin = true
+                stopDifference()
+            }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    youLose = true
+                stopDifference()
+            }
         }
     }
     
     func startFinishLineAnimation() {
         progressTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { _ in
-            if startFinishOffset - horseBoostOffset > -screenWidth*2.9 {
+            if startFinishOffset - horseBoostOffset > -screenWidth*4.9 {
                 withAnimation(Animation.linear(duration: 0.5)) {
                     if runProgress > 0 {
-                        runProgress -= 0.02
+                        runProgress -= 0.0105
                     }
                     startFinishOffset -= screenWidth*0.05
                     barierXOffset -= screenWidth*0.05
@@ -359,7 +487,6 @@ struct GameTournament: View {
             } else {
                 stopTrackAnimation()
                 stopFinishLineAnimation()
-//                startRun = false
                 finishedAnimation()
                 
             }

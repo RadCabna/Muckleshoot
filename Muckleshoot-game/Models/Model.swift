@@ -24,11 +24,11 @@ struct ShopItem {
 class Arrays {
     
     static var yourHorsesArray = [
-    ["horseCard1","Blaze", "5", "5", "0"]
+    ["horseCard1","Blaze", "5", "5", "0", "100"]
     ]
     
     static var shopItemsArray: [ShopItem] = [
-        ShopItem(name: "horseCard1", cost: 300, horseName: "Blaze"),
+        ShopItem(name: "horseCard1", cost: 300, horseName: "Bruno"),
         ShopItem(name: "horseCard2", cost: 600, horseName: "Rune"),
         ShopItem(name: "horseCard3", cost: 1000, horseName: "Zephyr"),
         ShopItem(name: "horseCard4", cost: 1500, horseName: "Ash"),

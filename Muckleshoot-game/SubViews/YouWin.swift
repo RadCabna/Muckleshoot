@@ -9,6 +9,7 @@ import SwiftUI
 
 struct YouWin: View {
     @EnvironmentObject var coordinator: Coordinator
+    @AppStorage("challengeData") var challengeData = 0
     @AppStorage("coinCount") var coinCount = 100
     @Binding var youWin: Bool
     var body: some View {
@@ -38,6 +39,7 @@ struct YouWin: View {
                         HStack {
                             MenuButton(size: 0.18, text: "MENU")
                                 .onTapGesture {
+                                    coinCount += 200
                                     coordinator.navigate(to: .mainMenu)
                                 }
                             MenuButton(size: 0.18, text: "")
@@ -58,12 +60,18 @@ struct YouWin: View {
                                     }
                                 )
                                 .onTapGesture {
+                                    coinCount += 100
                                     youWin.toggle()
                                 }
                         }
                     }
                 )
         }
+        
+        .onAppear {
+            challengeData += 1
+        }
+        
     }
 }
 

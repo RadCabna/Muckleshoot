@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct MainMenu: View {
+    @EnvironmentObject var coordinator: Coordinator
     @AppStorage("coinCount") var coinCount = 100
     @AppStorage("challengeData") var challengeData = 0
     @State private var remainingTime: TimeInterval = 24 * 60 * 60
     @State private var isButtonActive = false
     @State private var timer: Timer?
     @State private var showBonuses = false
-    @State private var challengeGets = false
+    @AppStorage("challengeGets") var challengeGets = false
     @State private var showShop = false
     @State private var showUpgrates = false
     private let savedRemainingTimeKey = "savedRemainingTime"
@@ -153,7 +154,13 @@ struct MainMenu: View {
                         )
                         .offset(y: screenHeight*0.08)
                     )
+                        .onTapGesture {
+                            coordinator.navigate(to: .game)
+                        }
                     MenuButton(size: 0.25, text: "TRAINING")
+                        .onTapGesture {
+                            coordinator.navigate(to: .training)
+                        }
                 }
                 HStack {
                     MenuButton(size: 0.25, text: "UPGRADES")

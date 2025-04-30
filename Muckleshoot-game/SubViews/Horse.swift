@@ -44,11 +44,11 @@ struct Horse: View {
             }
         }
         
-        .onChange(of: boostSpeed) { _ in
-            if boostSpeed {
-                changeHorseSpeed(to: 0.1)
-            }
-        }
+//        .onChange(of: boostSpeed) { _ in
+//            if boostSpeed {
+//                changeHorseSpeed(to: 0.1)
+//            }
+//        }
         
         .onChange(of: jump) { _ in
             if !jump {
@@ -76,7 +76,9 @@ struct Horse: View {
             withAnimation(Animation.easeInOut(duration: 0.4)) {
                 horseOffset = 0
                 horseAngleDegrees = 5
-                horseRun()
+                if runAlreadyStart {
+                    horseRun()
+                }
             }
         }
     }

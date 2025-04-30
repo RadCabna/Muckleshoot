@@ -11,6 +11,7 @@ import SwiftUI
 enum CoordinatorView: Equatable {
     case loading
     case mainMenu
+    case training
     case game
    
 }
@@ -26,8 +27,9 @@ final class Coordinator: ObservableObject {
         case .mainMenu:
             view = AnyView(MainMenu())
         case .game:
+            view = AnyView(GameTournament())
+        case .training:
             view = AnyView(Game())
-       
         }
         return view
     }
