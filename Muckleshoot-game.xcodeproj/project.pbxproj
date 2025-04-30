@@ -28,6 +28,9 @@
 		DDB98B8D2DBF361000455368 /* YouWin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B8C2DBF361000455368 /* YouWin.swift */; };
 		DDB98B8F2DBFA66600455368 /* YouLose.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B8E2DBFA66600455368 /* YouLose.swift */; };
 		DDB98B912DBFA71C00455368 /* Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B902DBFA71C00455368 /* Pause.swift */; };
+		DDB98B932DC2285600455368 /* WinTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B922DC2285600455368 /* WinTraining.swift */; };
+		DDB98B952DC2286600455368 /* LoseTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B942DC2286600455368 /* LoseTraining.swift */; };
+		DDB98B972DC22DA700455368 /* GameTournament.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B962DC22DA700455368 /* GameTournament.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 		DDB98B8C2DBF361000455368 /* YouWin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouWin.swift; sourceTree = "<group>"; };
 		DDB98B8E2DBFA66600455368 /* YouLose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouLose.swift; sourceTree = "<group>"; };
 		DDB98B902DBFA71C00455368 /* Pause.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pause.swift; sourceTree = "<group>"; };
+		DDB98B922DC2285600455368 /* WinTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinTraining.swift; sourceTree = "<group>"; };
+		DDB98B942DC2286600455368 /* LoseTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseTraining.swift; sourceTree = "<group>"; };
+		DDB98B962DC22DA700455368 /* GameTournament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTournament.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,7 @@
 				DD02EE8B2DB7A3E9002081C3 /* Loading.swift */,
 				DD02EE8D2DB7A3F2002081C3 /* MainMenu.swift */,
 				DD02EE8F2DB7A3F9002081C3 /* Game.swift */,
+				DDB98B962DC22DA700455368 /* GameTournament.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -134,6 +141,8 @@
 				DDB98B8C2DBF361000455368 /* YouWin.swift */,
 				DDB98B8E2DBFA66600455368 /* YouLose.swift */,
 				DDB98B902DBFA71C00455368 /* Pause.swift */,
+				DDB98B922DC2285600455368 /* WinTraining.swift */,
+				DDB98B942DC2286600455368 /* LoseTraining.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -257,8 +266,11 @@
 				DDB98B852DBE73F500455368 /* Model.swift in Sources */,
 				DD02EE9E2DB7C058002081C3 /* MenuButton.swift in Sources */,
 				DD02EE8C2DB7A3E9002081C3 /* Loading.swift in Sources */,
+				DDB98B952DC2286600455368 /* LoseTraining.swift in Sources */,
 				DD02EE8A2DB7A3C5002081C3 /* Coordinator.swift in Sources */,
 				DDB98B8F2DBFA66600455368 /* YouLose.swift in Sources */,
+				DDB98B972DC22DA700455368 /* GameTournament.swift in Sources */,
+				DDB98B932DC2285600455368 /* WinTraining.swift in Sources */,
 				DDB98B8B2DBF2A3D00455368 /* Upgrades.swift in Sources */,
 				DDB98B872DBF214900455368 /* Store.swift in Sources */,
 				DD02EE8E2DB7A3F2002081C3 /* MainMenu.swift in Sources */,

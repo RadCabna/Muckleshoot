@@ -1,13 +1,13 @@
 //
-//  Game.swift
+//  GameTournament.swift
 //  Muckleshoot-game
 //
-//  Created by Алкександр Степанов on 22.04.2025.
+//  Created by Алкександр Степанов on 30.04.2025.
 //
 
 import SwiftUI
 
-struct Game: View {
+struct GameTournament: View {
     @State private var boostOn = false
     @State private var startRun = false
     @State private var horseJump = false
@@ -17,6 +17,9 @@ struct Game: View {
     @State private var raceBegun = false
     @State private var runAlreadyStart = false
     @State private var startText = "3"
+    @State private var horseTwoArray: [String] = ["horse21", "horse23", "horse22"]
+    @State private var horseTwoJump = false
+    @State private var horseThreeJump = false
     @State private var horseOneArray: [String] = ["horse11", "horse13", "horse12"]
     @State private var startTextOpacity: CGFloat = 0
     @State private var startTextScale: CGFloat = 1
@@ -24,6 +27,8 @@ struct Game: View {
     @State private var stamina: CGFloat = 0
     @State private var horseBoostOffset: CGFloat = 0
     @State private var horseVerticalOffset: CGFloat = 0
+    @State private var horseTwoVerticalOffset: CGFloat = 0
+    @State private var horseThreeVerticalOffset: CGFloat = 0
     @State private var trackOffset: CGFloat = 0
     @State private var trackTimer: Timer?
     @State private var objectsTimer: Timer?
@@ -139,8 +144,8 @@ struct Game: View {
                     }
                 }
             }
-            //            Horse(startRun: startRun, boostSpeed: boostOn, jump: horseJump)
-            //                .offset(x: -screenWidth*0.4, y: screenHeight*0)
+            Horse(horseArray: $horseTwoArray, startRun: $startRun, runAlreadyStart: $runAlreadyStart, boostSpeed: boostOn, jump: horseJump)
+                            .offset(x: -screenWidth*0.4, y: screenHeight*0)
             Horse(horseArray: $horseOneArray, startRun: $startRun, runAlreadyStart: $runAlreadyStart, boostSpeed: boostOn, jump: horseJump)
                 .offset(x: -screenWidth*0.4 + horseBoostOffset, y: screenHeight*0.2+horseVerticalOffset)
             //            Horse(startRun: startRun, boostSpeed: boostOn, jump: horseJump)
@@ -381,9 +386,8 @@ struct Game: View {
         trackTimer?.invalidate()
         trackTimer = nil
     }
-    
 }
 
 #Preview {
-    Game()
+    GameTournament()
 }

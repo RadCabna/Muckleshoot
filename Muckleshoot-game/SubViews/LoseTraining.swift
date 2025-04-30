@@ -1,13 +1,13 @@
 //
-//  YouLose.swift
+//  LoseTraining.swift
 //  Muckleshoot-game
 //
-//  Created by Алкександр Степанов on 28.04.2025.
+//  Created by Алкександр Степанов on 30.04.2025.
 //
 
 import SwiftUI
 
-struct YouLose: View {
+struct LoseTraining: View {
     @EnvironmentObject var coordinator: Coordinator
     @AppStorage("coinCount") var coinCount = 100
     @Binding var youLose: Bool
@@ -24,7 +24,7 @@ struct YouLose: View {
                             .font(Font.custom("Chewy-Regular", size: screenWidth*0.05))
                             .foregroundColor(.white)
                             .shadow(color: .black, radius: 2)
-                       
+                        
                         HStack {
                             MenuButton(size: 0.18, text: "MENU")
                                 .onTapGesture {
@@ -32,20 +32,10 @@ struct YouLose: View {
                                 }
                             MenuButton(size: 0.18, text: "")
                                 .overlay(
-                                    HStack {
-                                        Text("RETRY")
-                                            .font(Font.custom("Chewy-Regular", size: screenWidth*0.02))
-                                            .foregroundColor(.white)
-                                            .shadow(color: .black, radius: 2)
-                                        Image("coin")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: screenWidth*0.025)
-                                        Text("100")
-                                            .font(Font.custom("Chewy-Regular", size: screenWidth*0.02))
-                                            .foregroundColor(.white)
-                                            .shadow(color: .black, radius: 2)
-                                    }
+                                    Text("RETRY")
+                                        .font(Font.custom("Chewy-Regular", size: screenWidth*0.027))
+                                        .foregroundColor(.white)
+                                        .shadow(color: .black, radius: 2)
                                 )
                                 .onTapGesture {
                                     youLose.toggle()
@@ -58,5 +48,5 @@ struct YouLose: View {
 }
 
 #Preview {
-    YouLose(youLose: .constant(true))
+    LoseTraining(youLose: .constant(true))
 }

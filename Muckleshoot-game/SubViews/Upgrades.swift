@@ -108,6 +108,8 @@ struct Upgrades: View {
                 )
         }
     }
+    
+    
 }
 
 #Preview {

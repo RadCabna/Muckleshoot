@@ -1,13 +1,13 @@
 //
-//  YouWin.swift
+//  winTraining.swift
 //  Muckleshoot-game
 //
-//  Created by Алкександр Степанов on 28.04.2025.
+//  Created by Алкександр Степанов on 30.04.2025.
 //
 
 import SwiftUI
 
-struct YouWin: View {
+struct WinTraining: View {
     @EnvironmentObject var coordinator: Coordinator
     @AppStorage("coinCount") var coinCount = 100
     @Binding var youWin: Bool
@@ -29,7 +29,7 @@ struct YouWin: View {
                             .scaledToFit()
                             .frame(width: screenWidth*0.2)
                             .overlay(
-                                Text("+ 200")
+                                Text("+ 50")
                                     .font(Font.custom("Chewy-Regular", size: screenWidth*0.03))
                                     .foregroundColor(.white)
                                     .shadow(color: .black, radius: 2)
@@ -38,26 +38,12 @@ struct YouWin: View {
                         HStack {
                             MenuButton(size: 0.18, text: "MENU")
                                 .onTapGesture {
+                                    coinCount += 50
                                     coordinator.navigate(to: .mainMenu)
                                 }
-                            MenuButton(size: 0.18, text: "")
-                                .overlay(
-                                    HStack {
-                                        Text("RETRY")
-                                            .font(Font.custom("Chewy-Regular", size: screenWidth*0.02))
-                                            .foregroundColor(.white)
-                                            .shadow(color: .black, radius: 2)
-                                        Image("coin")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: screenWidth*0.025)
-                                        Text("100")
-                                            .font(Font.custom("Chewy-Regular", size: screenWidth*0.02))
-                                            .foregroundColor(.white)
-                                            .shadow(color: .black, radius: 2)
-                                    }
-                                )
+                            MenuButton(size: 0.18, text: "RETRY")
                                 .onTapGesture {
+                                    coinCount += 50
                                     youWin.toggle()
                                 }
                         }
@@ -68,5 +54,5 @@ struct YouWin: View {
 }
 
 #Preview {
-    YouWin(youWin: .constant(true))
+    WinTraining(youWin: .constant(true))
 }

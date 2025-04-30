@@ -9,8 +9,9 @@ import SwiftUI
 
 struct Horse: View {
     @State private var timer: Timer?
-    var horseArray: [String] = ["horse11", "horse13", "horse12"]
+    @Binding var horseArray: [String]
    @Binding var startRun: Bool
+    @Binding var runAlreadyStart: Bool
     var boostSpeed = false
     var jump = false
     @State private var horseAngleDegrees: CGFloat = 0
@@ -29,6 +30,10 @@ struct Horse: View {
                 .onTapGesture {
 //                    horseJump()
                 }
+        }
+        
+        .onAppear {
+            horseName = horseArray[0]
         }
         
         .onChange(of: startRun) { _ in
@@ -51,28 +56,23 @@ struct Horse: View {
             }
         }
         
-        .onAppear {
-            
-//            horseRun()
-        }
-        
     }
     
     func horseJump() {
         stopHorseRun()
-        horseName = "horse12"
+        horseName = horseArray[2]
         withAnimation(Animation.easeInOut(duration: 0.4)) {
             horseOffset = -0.05
             horseAngleDegrees = -5
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            horseName = "horse13"
+            horseName = horseArray[1]
             withAnimation(Animation.easeInOut(duration: 0.4)) {
                 horseAngleDegrees = 0
             }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-            horseName = "horse12"
+            horseName = horseArray[2]
             withAnimation(Animation.easeInOut(duration: 0.4)) {
                 horseOffset = 0
                 horseAngleDegrees = 5
@@ -106,11 +106,11 @@ struct Horse: View {
     func stopHorseRun() {
             timer?.invalidate()
             timer = nil
-        horseName = "horse11"
+        horseName = horseArray[0]
         }
     
 }
 
 #Preview {
-    Horse(startRun: .constant(false))
+    Horse(horseArray: .constant(["horse21", "horse23", "horse22"]), startRun: .constant(false), runAlreadyStart: .constant(false))
 }
