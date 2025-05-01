@@ -70,6 +70,7 @@ struct YouWin: View {
         
         .onAppear {
             challengeData += 1
+            SoundManager.instance.playSound(sound: "winSound")
         }
         
     }

@@ -42,10 +42,9 @@ struct Game: View {
                 Image("pauseButton")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: screenHeight*0.14)
+                    .frame(height: screenWidth*0.07)
                     .onTapGesture {
                         showPause.toggle()
-                        //                        raceBegun.toggle()
                     }
                 Spacer()
                 ZStack {
@@ -67,24 +66,23 @@ struct Game: View {
                         )
                 }
                 .padding(.top, screenHeight*0.02)
-                //                Spacer()
                 VStack(spacing: 0) {
                     ZStack {
                         Image("staminaLineBack")
                             .resizable()
                             .scaledToFit()
-                            .frame(height: screenHeight*0.12)
+                            .frame(width: screenWidth*0.25)
                         Image("staminaLineFront")
                             .resizable()
                             .scaledToFit()
-                            .frame(height: screenHeight*0.027)
+                            .frame(width: screenWidth*0.21)
                             .offset(y: screenHeight*0.005)
                             .offset(x: -screenWidth*0.2*stamina)
                             .mask(
                                 Image("staminaLineFront")
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: screenHeight*0.027)
+                                    .frame(width: screenWidth*0.21)
                                     .offset(y: screenHeight*0.005)
                             )
                     }
@@ -100,9 +98,9 @@ struct Game: View {
             .frame(maxHeight: .infinity, alignment: .top)
             .padding(screenHeight*0.07)
             Image("raceTrack")
-            //                .resizable()
-                .scaledToFit()
-                .frame(width: screenWidth*1, height: screenHeight*0.5)
+                            .resizable()
+                .scaledToFill()
+                .frame(width: screenWidth*1, height: screenHeight*0.7)
                 .offset(x: trackOffset*screenWidth, y: screenHeight*0.2)
                 .gesture(
                     DragGesture()
@@ -142,12 +140,8 @@ struct Game: View {
                     }
                 }
             }
-            //            Horse(startRun: startRun, boostSpeed: boostOn, jump: horseJump)
-            //                .offset(x: -screenWidth*0.4, y: screenHeight*0)
             Horse(horseArray: $horseOneArray, startRun: $startRun, runAlreadyStart: $runAlreadyStart, boostSpeed: boostOn, jump: horseJump)
                 .offset(x: -screenWidth*0.4 + horseBoostOffset, y: screenHeight*0.2+horseVerticalOffset)
-            //            Horse(startRun: startRun, boostSpeed: boostOn, jump: horseJump)
-            //                .offset(x: -screenWidth*0.4, y: screenHeight*0.4)
             HStack {
                 Image("boostButton")
                     .resizable()
@@ -232,7 +226,6 @@ struct Game: View {
             if raceBegun {
                 trackAnimation()
             } else {
-                //                stopTrackAnimation()
                 stopFinishLineAnimation()
             }
         }
@@ -246,6 +239,7 @@ struct Game: View {
         .onChange(of: barierXOffset) { _ in
             for i in 0..<bariersArray.count {
                 if barierXOffset - horseBoostOffset <= -screenWidth*0.4 + 50 && !horseJump && barierXOffset - horseBoostOffset >= -screenWidth*0.4 - 50 && horseVerticalOffset + screenHeight*0.2 == bariersArray[i].yOffset && bariersArray[i].haveBarier{
+                    SoundManager.instance.playSound(sound: "horseStop")
                     startRun = false
                     raceBegun = false
                     youLose = true
@@ -296,6 +290,7 @@ struct Game: View {
     
     func startRaceAnimation() {
         startTextOpacity = 1
+        SoundManager.instance.playSound(sound: "321sound")
         withAnimation(Animation.easeInOut(duration: 1)) {
             startTextScale = 1.5
             startTextOpacity = 0
@@ -328,6 +323,7 @@ struct Game: View {
             }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+            SoundManager.instance.playSound(sound: "startShoot")
             raceBegun = true
             startRun = true
             runAlreadyStart = true

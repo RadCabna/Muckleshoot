@@ -31,10 +31,15 @@
 		DDB98B932DC2285600455368 /* WinTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B922DC2285600455368 /* WinTraining.swift */; };
 		DDB98B952DC2286600455368 /* LoseTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B942DC2286600455368 /* LoseTraining.swift */; };
 		DDB98B972DC22DA700455368 /* GameTournament.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB98B962DC22DA700455368 /* GameTournament.swift */; };
+		DDB98B9C2DC3521E00455368 /* startShoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDB98B982DC3521E00455368 /* startShoot.mp3 */; };
+		DDB98B9D2DC3521E00455368 /* horseStop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDB98B992DC3521E00455368 /* horseStop.mp3 */; };
+		DDB98B9E2DC3521E00455368 /* 321sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDB98B9A2DC3521E00455368 /* 321sound.mp3 */; };
+		DDB98B9F2DC3521E00455368 /* musicMain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDB98B9B2DC3521E00455368 /* musicMain.mp3 */; };
+		DDB98BA12DC353E100455368 /* winSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDB98BA02DC353E100455368 /* winSound.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DD02EE702DB7A35E002081C3 /* Muckleshoot-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Muckleshoot-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD02EE702DB7A35E002081C3 /* Muckleshoot game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Muckleshoot game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD02EE732DB7A35E002081C3 /* Muckleshoot_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muckleshoot_gameApp.swift; sourceTree = "<group>"; };
 		DD02EE772DB7A35F002081C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD02EE792DB7A35F002081C3 /* Muckleshoot_game.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Muckleshoot_game.entitlements; sourceTree = "<group>"; };
@@ -61,6 +66,12 @@
 		DDB98B922DC2285600455368 /* WinTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinTraining.swift; sourceTree = "<group>"; };
 		DDB98B942DC2286600455368 /* LoseTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseTraining.swift; sourceTree = "<group>"; };
 		DDB98B962DC22DA700455368 /* GameTournament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTournament.swift; sourceTree = "<group>"; };
+		DDB98B982DC3521E00455368 /* startShoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = startShoot.mp3; sourceTree = "<group>"; };
+		DDB98B992DC3521E00455368 /* horseStop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = horseStop.mp3; sourceTree = "<group>"; };
+		DDB98B9A2DC3521E00455368 /* 321sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 321sound.mp3; sourceTree = "<group>"; };
+		DDB98B9B2DC3521E00455368 /* musicMain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = musicMain.mp3; sourceTree = "<group>"; };
+		DDB98BA02DC353E100455368 /* winSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winSound.mp3; sourceTree = "<group>"; };
+		DDB98BA22DC3775D00455368 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +96,7 @@
 		DD02EE712DB7A35E002081C3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD02EE702DB7A35E002081C3 /* Muckleshoot-game.app */,
+				DD02EE702DB7A35E002081C3 /* Muckleshoot game.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +104,7 @@
 		DD02EE722DB7A35E002081C3 /* Muckleshoot-game */ = {
 			isa = PBXGroup;
 			children = (
+				DDB98BA22DC3775D00455368 /* PrivacyInfo.xcprivacy */,
 				DD02EE9C2DB7A5D5002081C3 /* Info.plist */,
 				DD02EE732DB7A35E002081C3 /* Muckleshoot_gameApp.swift */,
 				DD02EE822DB7A373002081C3 /* Views */,
@@ -174,6 +186,11 @@
 		DD02EE882DB7A3A5002081C3 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				DDB98BA02DC353E100455368 /* winSound.mp3 */,
+				DDB98B9A2DC3521E00455368 /* 321sound.mp3 */,
+				DDB98B992DC3521E00455368 /* horseStop.mp3 */,
+				DDB98B9B2DC3521E00455368 /* musicMain.mp3 */,
+				DDB98B982DC3521E00455368 /* startShoot.mp3 */,
 				DD02EE982DB7A4B0002081C3 /* SoundManager.swift */,
 			);
 			path = Sounds;
@@ -204,7 +221,7 @@
 			);
 			name = "Muckleshoot-game";
 			productName = "Muckleshoot-game";
-			productReference = DD02EE702DB7A35E002081C3 /* Muckleshoot-game.app */;
+			productReference = DD02EE702DB7A35E002081C3 /* Muckleshoot game.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -246,8 +263,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD02EE9B2DB7A5C9002081C3 /* Chewy-Regular.ttf in Resources */,
+				DDB98BA12DC353E100455368 /* winSound.mp3 in Resources */,
 				DD02EE7C2DB7A35F002081C3 /* Preview Assets.xcassets in Resources */,
+				DDB98B9F2DC3521E00455368 /* musicMain.mp3 in Resources */,
 				DD02EE782DB7A35F002081C3 /* Assets.xcassets in Resources */,
+				DDB98B9C2DC3521E00455368 /* startShoot.mp3 in Resources */,
+				DDB98B9D2DC3521E00455368 /* horseStop.mp3 in Resources */,
+				DDB98B9E2DC3521E00455368 /* 321sound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +430,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Muckleshoot-game/Preview Content\"";
-				DEVELOPMENT_TEAM = TJC4VDAK2F;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -419,6 +441,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
@@ -427,8 +450,8 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "f1.Muckleshoot-game";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcklsht.shoot;
+				PRODUCT_NAME = "Muckleshoot game";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -447,7 +470,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Muckleshoot-game/Preview Content\"";
-				DEVELOPMENT_TEAM = TJC4VDAK2F;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -458,6 +481,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
@@ -466,8 +490,8 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "f1.Muckleshoot-game";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcklsht.shoot;
+				PRODUCT_NAME = "Muckleshoot game";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

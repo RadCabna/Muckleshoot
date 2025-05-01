@@ -55,7 +55,7 @@ struct GameTournament: View {
                 Image("pauseButton")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: screenHeight*0.14)
+                    .frame(height: screenWidth*0.07)
                     .onTapGesture {
                                                 showPause.toggle()
                         //                        raceBegun.toggle()
@@ -89,18 +89,18 @@ struct GameTournament: View {
                         Image("staminaLineBack")
                             .resizable()
                             .scaledToFit()
-                            .frame(height: screenHeight*0.12)
+                            .frame(width: screenWidth*0.25)
                         Image("staminaLineFront")
                             .resizable()
                             .scaledToFit()
-                            .frame(height: screenHeight*0.027)
+                            .frame(width: screenWidth*0.21)
                             .offset(y: screenHeight*0.005)
                             .offset(x: -screenWidth*0.2*stamina)
                             .mask(
                                 Image("staminaLineFront")
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: screenHeight*0.027)
+                                    .frame(width: screenWidth*0.21)
                                     .offset(y: screenHeight*0.005)
                             )
                     }
@@ -116,9 +116,9 @@ struct GameTournament: View {
             .frame(maxHeight: .infinity, alignment: .top)
             .padding(screenHeight*0.07)
             Image("raceTrack")
-            //                .resizable()
-                .scaledToFit()
-                .frame(width: screenWidth*1, height: screenHeight*0.5)
+                            .resizable()
+                .scaledToFill()
+                .frame(width: screenWidth*1, height: screenHeight*0.7)
                 .offset(x: trackOffset*screenWidth, y: screenHeight*0.2)
                 .gesture(
                     DragGesture()
@@ -269,6 +269,7 @@ struct GameTournament: View {
         .onChange(of: barierXOffset) { _ in
             for i in 0..<bariersArray.count {
                 if barierXOffset - horseBoostOffset <= -screenWidth*0.4 + 50 && !horseJump && barierXOffset - horseBoostOffset >= -screenWidth*0.4 - 50 && horseVerticalOffset + screenHeight*0.2 == bariersArray[i].yOffset && bariersArray[i].haveBarier{
+                    SoundManager.instance.playSound(sound: "horseStop")
                     startRun = false
                     raceBegun = false
                     youLose = true
@@ -376,6 +377,7 @@ struct GameTournament: View {
     
     func startRaceAnimation() {
         startTextOpacity = 1
+        SoundManager.instance.playSound(sound: "321sound")
         withAnimation(Animation.easeInOut(duration: 1)) {
             startTextScale = 1.5
             startTextOpacity = 0
@@ -408,6 +410,7 @@ struct GameTournament: View {
             }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+            SoundManager.instance.playSound(sound: "startShoot")
             raceBegun = true
             startRun = true
             runAlreadyStart = true

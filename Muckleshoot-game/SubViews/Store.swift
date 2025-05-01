@@ -61,7 +61,7 @@ struct Store: View {
                                             .font(Font.custom("Chewy-Regular", size: screenWidth*0.03))
                                             .foregroundColor(.white)
                                             .shadow(color: .black, radius: 2)
-                                            .offset(y: screenHeight*0.12)
+                                            .offset(y: screenHeight*0.1)
                                     )
                                 if alreadyBoughtHorsesData[item] == 0 {
                                     Image(coinCount >= shopItemsArray[item].cost ? "menuButton" : "disactiveButton")

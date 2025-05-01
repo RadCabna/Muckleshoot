@@ -41,6 +41,7 @@ struct BuyNewHorse: View {
             }
             .frame(maxHeight: .infinity, alignment: .top)
             .padding(.top)
+            .padding(.horizontal)
             Image("buyHorseFrame")
                 .resizable()
                 .scaledToFit()
@@ -57,7 +58,7 @@ struct BuyNewHorse: View {
                                         .font(Font.custom("Chewy-Regular", size: screenWidth*0.03))
                                         .foregroundColor(.white)
                                         .shadow(color: .black, radius: 2)
-                                        .offset(y: screenHeight*0.14)
+                                        .offset(y: screenHeight*0.1)
                                 )
                             VStack(alignment: .leading, spacing: screenHeight*0.04) {
                                 Text("SPEED +5%")

@@ -50,6 +50,11 @@ struct WinTraining: View {
                     }
                 )
         }
+        
+        .onAppear {
+            SoundManager.instance.playSound(sound: "winSound")
+        }
+        
     }
 }
 

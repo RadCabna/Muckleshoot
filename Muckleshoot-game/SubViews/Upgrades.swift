@@ -42,6 +42,7 @@ struct Upgrades: View {
             }
             .frame(maxHeight: .infinity, alignment: .top)
             .padding(.top)
+            .padding(.horizontal)
             Image("shopFrame")
                 .resizable()
                 .scaledToFit()
@@ -74,7 +75,7 @@ struct Upgrades: View {
                                                 .font(Font.custom("Chewy-Regular", size: screenWidth*0.03))
                                                 .foregroundColor(.white)
                                                 .shadow(color: .black, radius: 2)
-                                                .offset(y: screenHeight*0.12)
+                                                .offset(y: screenHeight*0.1)
                                         )
                                     Text("SPEED +\(yourHorsesAray[item][2])%")
                                         .font(Font.custom("Chewy-Regular", size: screenWidth*0.02))

@@ -72,6 +72,7 @@ struct MainMenu: View {
             }
             .frame(maxHeight: .infinity, alignment: .top)
             .padding(.top)
+            .padding(.horizontal)
             ZStack {
                 Image("challengeFrame")
                     .resizable()
@@ -132,6 +133,7 @@ struct MainMenu: View {
                     )
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+            .padding()
             VStack(spacing: screenHeight*0.07) {
                 HStack {
                     MenuButton(size: 0.25, text: "TOURNAMENT")
@@ -155,7 +157,9 @@ struct MainMenu: View {
                         .offset(y: screenHeight*0.08)
                     )
                         .onTapGesture {
-                            coordinator.navigate(to: .game)
+                            if coinCount >= 100 {
+                                coordinator.navigate(to: .game)
+                            }
                         }
                     MenuButton(size: 0.25, text: "TRAINING")
                         .onTapGesture {
@@ -185,6 +189,8 @@ struct MainMenu: View {
         
         .onAppear {
             loadTimerState()
+            SoundManager.instance.stopAllSounds()
+                SoundManager.instance.playSound(sound: "musicMain")
         }
         .onDisappear {
             saveTimerState()
