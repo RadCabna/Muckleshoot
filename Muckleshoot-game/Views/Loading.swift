@@ -20,8 +20,13 @@ struct Loading: View {
             let isLandscape = width > height
             if isLandscape {
                 ZStack {
-                    Background()
+//                    Background()
+                    Color("bgColor").ignoresSafeArea()
                     VStack {
+                        Image("loadingLogo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: height*0.5)
                         Text("LOADING...")
                             .font(Font.custom("Chewy-Regular", size: width*0.05))
                             .foregroundColor(.white)
@@ -45,14 +50,19 @@ struct Loading: View {
                                         .frame(width: width*0.495)                                )
                         }
                     }
-                    .offset(y: height*0.35)
+                    .offset(y: height*0.05)
                     .opacity(loadingOpacity)
                 }
                 .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
             } else {
                 ZStack {
-                    Background()
+//                    Background()
+                    Color("bgColor").ignoresSafeArea()
                     VStack {
+                        Image("loadingLogo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: width*0.5)
                         Text("LOADING...")
                             .font(Font.custom("Chewy-Regular", size: height*0.05))
                             .foregroundColor(.white)
@@ -78,7 +88,7 @@ struct Loading: View {
                     }
                     .opacity(loadingOpacity)
                     .rotationEffect(Angle(degrees: -90))
-                    .offset(x: width*0.35)
+                    .offset(x: width*0.05)
                     .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
                 }
             }
